@@ -1,0 +1,16 @@
+{
+  "name": "server-node",
+  "version": "1.0.0",
+  "description": "Basic REST API Server",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./build",
+    "start": "node ./build/index/js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "lint": "eslint ."
+  }, "author": "Darwin Garcia <Garciadarwin305@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
