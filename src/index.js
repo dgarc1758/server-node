@@ -25,5 +25,5 @@ app.use(errorHandler)
 
 
 app.listen(port, callback: () => {
-  logger.info(message:`Server running on port ${port}`)
+  logger.info({message:`Server running on port ${port}`})
 })
