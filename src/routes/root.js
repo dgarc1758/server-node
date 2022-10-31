@@ -10,4 +10,6 @@ router.get('/',(req,res)=>{
     res.send({msg: title})
    })
 
+   
+
    export default router
