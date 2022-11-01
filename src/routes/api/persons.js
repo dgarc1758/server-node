@@ -1,20 +1,31 @@
 import {Router} from 'express'
 
+import {getPersons, 
+        getPerson, 
+        createPerson,
+        updatePerson, 
+        deletePerson, 
+    } from '../../models/persons'
+
 const router = Router()
 
 router.get('/', (req,res) => {
-    res.send({msg: 'Get all Persons'})
+    const persons = getPersons()
+    res.send(persons)
 })
 
 router.get('/:id', (req,res) => {
-    res.send({msg:`Getting Person ${req.params.id}`})
+    const person = getPerson(id: req.params.id)
+    res.send(person)
 })
 
 router.post('/',(req,res) => {
-    res.send({msg: 'Creating a new Person'})
+    const newPerson = createPerson(person: req.body)
+    res.send(newPerson)
 })
 
 router.put('/:id',(req,res) => {
+    updatePerson( id: req.params.id, person: req.body)
   res.send({msg: `Updating Person ${req.params.id}`})
 })
 
