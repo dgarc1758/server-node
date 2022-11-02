@@ -26,11 +26,11 @@ router.post('/',(req,res) => {
 
 router.put('/:id',(req,res) => {
     updatePerson( id: req.params.id, person: req.body)
-  res.send({msg: `Updating Person ${req.params.id}`})
+  res.send({msg: `Person ${req.params.id} Updated`})
 })
 
 router.delete('/:id', (req, res) => {
-    res.send({msg: `Deleting Person ${req.params.id}`})
+    res.send({msg: `Person ${req.params.id} Deleted`})
 })
 
 

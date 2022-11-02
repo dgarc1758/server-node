@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuid } from 'uuid'
 
 const persons = []
 
@@ -9,7 +9,7 @@ export const getPerson = (id) => {
 }
 
 export const createPerson = (person) => {
-    const id = nanoid()
+    const id = uuid()
    persons.push({id, ...person})
 }
 
