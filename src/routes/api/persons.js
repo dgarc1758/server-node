@@ -16,21 +16,35 @@ router.get('/', (req,res) => {
 
 router.get('/:id', (req,res) => {
     const person = getPerson(id: req.params.id)
-    res.send(person)
+    if(person)
+    {
+      res.send(person)
+    }
+    res.status(code: 404).send({msg: 'Person not found'})
 })
 
 router.post('/',(req,res) => {
     const newPerson = createPerson(person: req.body)
-    res.send(newPerson)
+    if(newPerson){
+      res.status(code: 201).send(newPerson)
+    }
+   res.status(code: 400).send({msg: 'Bad Request'})
 })
 
 router.put('/:id',(req,res) => {
-    updatePerson( id: req.params.id, person: req.body)
-  res.send({msg: `Person ${req.params.id} Updated`})
+ const updatePerson = updatePerson( id: req.params.id, person: req.body)
+ if(updatePerson){
+  res.send(updatedPerson)
+ }
+ res.status(code: 404).send({ msg: 'Person not found'})
 })
 
 router.delete('/:id', (req, res) => {
-    res.send({msg: `Person ${req.params.id} Deleted`})
+    const deleted = deletePerson(id: req.params.id)
+    if(deleted){
+     res.send({msg: `Person ${req.params.id} Deleted`})
+   }
+   res.status(code: 404).send({ msg: 'Person not found'})
 })
 
 
